@@ -1,0 +1,30 @@
+<?php
+
+?>
+
+<style>
+    table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  margin-top: 30px;}
+    td, th {  border: 1px solid black;  text-align: left;  padding: 8px;  }
+    th { background-color: #dddddd; }
+    .post-id{width:2%} .post-name{width:30%}
+
+</style>
+<h2>Table Actor</h2>
+
+<table>
+    <tr>
+        <th class="post-id">Id</th>
+        <th class="post-name">Name Actor</th>
+
+
+    </tr>
+    <?php
+    foreach ($block->getActorCollection() as $key=>$actor){
+        echo '<tr>
+                    <td>'.$actor->getActorId().'</td>
+                    <td>'.$actor->getname().'</td>
+               
+                  </tr>';
+    }
+    ?>
+</table>

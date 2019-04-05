@@ -1,0 +1,37 @@
+<?php
+?>
+
+<div id="menu">
+    <ul>
+        <li><a href="<?php echo $block->getHome(); ?>">Home</a></li>
+        <li><a href="<?php echo $block->getMovie(); ?>">Movie</a></li>
+        <li><a href="<?php echo $block->getDirector(); ?>">Director</a></li>
+        <li><a href="<?php echo $block->getActor(); ?>">Actor</a></li>
+    </ul>
+</div>
+<style>
+    #menu ul {
+
+        background: #1F568B;
+        list-style-type: none;
+        text-align: center;
+    }
+    #menu li {
+        magrin-top:5px;
+        color: #f1f1f1;
+        display: inline-block;
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+        margin-left: -5px;
+    }
+    #menu a {
+        text-decoration: none;
+        color: #fff;
+        display: block;
+    }
+    #menu a:hover {
+        background: #F1F1F1;
+        color: #333;
+    }
+</style>
