@@ -1,5 +1,5 @@
 <?php
-namespace Packt\HelloWorld\Block\Adminhtml\Movie\Edit;
+namespace Packt\HelloWorld\Block\Adminhtml\Actor\Edit;
 
 
 use Zend\Db\Sql\Ddl\Column\Integer;
@@ -25,15 +25,15 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     protected function _construct()
     {
         parent::_construct();
-        $this->setId('movie_form');
-        $this->setTitle(__('Movie Information'));
+        $this->setId('actor_form');
+        $this->setTitle(__('Actor Information'));
     }
 
 
     protected function _prepareForm()
     {
         /** @var \Ashsmith\Blog\Model\Post $model */
-        $model = $this->_coreRegistry->registry('helloworld_movie');
+        $model = $this->_coreRegistry->registry('helloworld_actor');
 
 
         $form = $this->_formFactory->create(
@@ -47,30 +47,17 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             ['legend' => __('General Information'), 'class' => 'fieldset-wide']
         );
 
-        if ($model->getMovieId()) {
-            $fieldset->addField('movie_id', 'hidden', ['name' => 'movie_id']);
+        if ($model->getActorId()) {
+            $fieldset->addField('actor_id', 'hidden', ['name' => 'actor_id']);
         }
 
         $fieldset->addField(
             'name',
             'text',
-            ['name' => 'name', 'label' => __('Name'), 'required' => true]
+            ['name' => 'name', 'label' => __('Name'),  'required' => true]
         );
-        $fieldset->addField(
-            'description',
-            'text',
-            ['name' => 'description', 'label' => __('Description'), 'required' => true]
-        );
-        $fieldset->addField(
-            'rating',
-            'text',
-            ['name' => 'rating', 'label' => __('Rating'), 'required' => true]
-        );
-        $fieldset->addField(
-            'director_id',
-            'text',
-            ['name' => 'director_id', 'label' => __('Director id'),  'required' => true]
-        );
+
+
         $form->setValues($model->getData());
         $form->setUseContainer(true);
         $this->setForm($form);

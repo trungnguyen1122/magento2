@@ -6,11 +6,11 @@ use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\UrlInterface;
 
-class MovieActions extends Column
+class ActorActions extends Column
 {
-    /** Url path */
-    const BLOG_URL_PATH_EDIT = 'helloworld/movie/edit';
-    const BLOG_URL_PATH_DELETE = 'helloworld/movie/delete';
+
+    const BLOG_URL_PATH_EDIT = 'helloworld/actor/edit';
+    const BLOG_URL_PATH_DELETE = 'helloworld/actor/delete';
 
 
     protected $urlBuilder;
@@ -36,13 +36,13 @@ class MovieActions extends Column
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
                 $name = $this->getData('name');
-                if (isset($item['movie_id'])) {
+                if (isset($item['actor_id'])) {
                     $item[$name]['edit'] = [
-                        'href' => $this->urlBuilder->getUrl($this->editUrl, ['movie_id' => $item['movie_id']]),
+                        'href' => $this->urlBuilder->getUrl($this->editUrl, ['actor_id' => $item['actor_id']]),
                         'label' => __('Edit')
                     ];
                     $item[$name]['delete'] = [
-                        'href' => $this->urlBuilder->getUrl(self::BLOG_URL_PATH_DELETE, ['movie_id' => $item['movie_id']]),
+                        'href' => $this->urlBuilder->getUrl(self::BLOG_URL_PATH_DELETE, ['actor_id' => $item['actor_id']]),
                         'label' => __('Delete'),
                         'confirm' => [
                             'title' => __('Delete "${ $.$data.title }"'),

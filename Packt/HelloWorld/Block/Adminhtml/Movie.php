@@ -1,16 +1,14 @@
 <?php
 namespace Packt\HelloWorld\Block\Adminhtml;
-
 class Movie extends \Magento\Backend\Block\Widget\Grid\Container
 {
     protected function _construct()
     {
-        $this->_controller = 'movie_';
-        $this->_blockGroup = 'Pack_HelloWorld';
-        $this->_headerText = __('Magenest Movie');
+        $this->_blockGroup = 'Packt_HelloWorld';
+        $this->_controller = 'adminhtml_movie';
+        $this->_headerText = __('Movies');
 
         parent::_construct();
-
         if ($this->_isAllowedAction('Packt_HelloWorld::save')) {
             $this->buttonList->update('add', 'label', __('Add New Movie'));
         } else {
@@ -22,4 +20,5 @@ class Movie extends \Magento\Backend\Block\Widget\Grid\Container
     {
         return $this->_authorization->isAllowed($resourceId);
     }
+
 }

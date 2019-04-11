@@ -1,5 +1,5 @@
 <?php
-namespace Packt\HelloWorld\Block\Adminhtml\Movie;
+namespace Packt\HelloWorld\Block\Adminhtml\Actor;
 
 class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {
@@ -19,14 +19,14 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
 
     protected function _construct()
     {
-        $this->_objectId = 'movie_id';
+        $this->_objectId = 'actor_id';
         $this->_blockGroup = 'Packt_HelloWorld';
-        $this->_controller = 'adminhtml_movie';
+        $this->_controller = 'adminhtml_actor';
 
         parent::_construct();
 
         if ($this->_isAllowedAction('Pack_HelloWorld::save')) {
-            $this->buttonList->update('save', 'label', __('Save Movie'));
+            $this->buttonList->update('save', 'label', __('Save Actor'));
             $this->buttonList->add(
                 'saveandcontinue',
                 [
@@ -44,8 +44,8 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
             $this->buttonList->remove('save');
         }
 
-        if ($this->_isAllowedAction('Packt_HelloWorld::movie_delete')) {
-            $this->buttonList->update('delete', 'label', __('Delete Movie'));
+        if ($this->_isAllowedAction('Packt_HelloWorld::actor_delete')) {
+            $this->buttonList->update('delete', 'label', __('Delete Actor'));
         } else {
             $this->buttonList->remove('delete');
         }
@@ -53,10 +53,10 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
 
     public function getHeaderText()
     {
-        if ($this->_coreRegistry->registry('helloworld_movie')->getMovieId()) {
-            return __("Edit Movie '%1'", $this->escapeHtml($this->_coreRegistry->registry('helloworld_movie')->getName()));
+        if ($this->_coreRegistry->registry('helloworld_actor')->getActorId()) {
+            return __("Edit Actor '%1'", $this->escapeHtml($this->_coreRegistry->registry('helloworld_actor')->getName()));
         } else {
-            return __('New Movie');
+            return __('New Actor');
         }
     }
 

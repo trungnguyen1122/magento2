@@ -46,14 +46,6 @@
                 action="helloworld/director/"
                 resource="Packt_HelloWorld::director"
         />
-        <add
-                id="Packt_HelloWorld::addmovie"
-                title="AddMovie"
-                module="Packt_HelloWorld"
-                sortOrder="80"
-                parent="Packt_HelloWorld::helloworld"
-                action="helloworld/addmovie/"
-                resource="Packt_HelloWorld::helloworld"
-        />
+
     </menu>
 </config>

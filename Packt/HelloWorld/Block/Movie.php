@@ -1,6 +1,7 @@
 <?php
 namespace Packt\HelloWorld\Block;
-class Movie extends \Magento\Framework\View\Element\Template
+class
+Movie extends \Magento\Framework\View\Element\Template
 {
     protected $_movieFactory;
     public function __construct(

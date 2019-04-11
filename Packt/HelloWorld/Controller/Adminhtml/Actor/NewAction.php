@@ -1,5 +1,5 @@
 <?php
-namespace Packt\HelloWorld\Controller\Adminhtml\Movie;
+namespace Packt\HelloWorld\Controller\Adminhtml\Actor;
 
 class NewAction extends \Magento\Backend\App\Action
 {

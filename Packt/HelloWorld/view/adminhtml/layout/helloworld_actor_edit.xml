@@ -4,7 +4,7 @@
     <update handle="editor"/>
     <body>
         <referenceContainer name="content">
-            <block class="Packt\HelloWorld\Block\Adminhtml\Movie\Edit" name="helloworld_movie_edit"/>
+            <block class="Packt\HelloWorld\Block\Adminhtml\Actor\Edit" name="helloworld_actor_edit"/>
         </referenceContainer>
     </body>
 </page>

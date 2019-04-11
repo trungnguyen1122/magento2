@@ -1,5 +1,5 @@
 <?php
-namespace Packt\HelloWorld\Controller\Adminhtml\Movie;
+namespace Packt\HelloWorld\Controller\Adminhtml\Actor;
 
 use Magento\Backend\App\Action;
 
@@ -41,8 +41,8 @@ class Edit extends \Magento\Backend\App\Action
 
     public function execute()
     {
-        $id = $this->getRequest()->getParam('movie_id');
-        $model = $this->_objectManager->create('Packt\HelloWorld\Model\Movie');
+        $id = $this->getRequest()->getParam('actor_id');
+        $model = $this->_objectManager->create('Packt\HelloWorld\Model\Actor');
 
         if ($id) {
             $model->load($id);
@@ -60,17 +60,17 @@ class Edit extends \Magento\Backend\App\Action
             $model->setData($data);
         }
 
-        $this->_coreRegistry->register('helloworld_movie', $model);
+        $this->_coreRegistry->register('helloworld_actor', $model);
 
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->_initAction();
         $resultPage->addBreadcrumb(
-            $id ? __('Edit Movie') : __('New Movie'),
-            $id ? __('Edit Movie') : __('New Movie')
+            $id ? __('Edit Actor') : __('New Actor'),
+            $id ? __('Edit Actor') : __('New Actor')
         );
-        $resultPage->getConfig()->getTitle()->prepend(__('HelloWorld Movie'));
+        $resultPage->getConfig()->getTitle()->prepend(__('HelloWorld Actor'));
         $resultPage->getConfig()->getTitle()
-            ->prepend($model->getId() ? $model->getTitle() : __('New Movie'));
+            ->prepend($model->getId() ? $model->getTitle() : __('New Actor'));
 
         return $resultPage;
     }

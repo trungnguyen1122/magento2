@@ -1,5 +1,5 @@
 <?php
-namespace Packt\HelloWorld\Controller\Adminhtml\Movie;
+namespace Packt\HelloWorld\Controller\Adminhtml\Actor;
 
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
@@ -26,9 +26,9 @@ class Save extends \Magento\Backend\App\Action
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
 
-            $model = $this->_objectManager->create('Packt\HelloWorld\Model\Movie');
+            $model = $this->_objectManager->create('Packt\HelloWorld\Model\Actor');
 
-            $id = $this->getRequest()->getParam('movie_id');
+            $id = $this->getRequest()->getParam('actor_id');
             if ($id) {
                 $model->load($id);
             }
@@ -36,16 +36,16 @@ class Save extends \Magento\Backend\App\Action
             $model->setData($data);
 
             $this->_eventManager->dispatch(
-                'helloworld_movie_prepare_save',
+                'helloworld_actor_prepare_save',
                 ['post' => $model, 'request' => $this->getRequest()]
             );
 
             try {
                 $model->save();
-                $this->messageManager->addSuccess(__('You saved this Movie.'));
+                $this->messageManager->addSuccess(__('You saved this Actor.'));
                 $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
                 if ($this->getRequest()->getParam('back')) {
-                    return $resultRedirect->setPath('*/*/edit', ['movie_id' => $model->getId(), '_current' => true]);
+                    return $resultRedirect->setPath('*/*/edit', ['actor_id' => $model->getActorId(), '_current' => true]);
                 }
                 return $resultRedirect->setPath('*/*/');
             } catch (\Magento\Framework\Exception\LocalizedException $e) {
@@ -53,11 +53,11 @@ class Save extends \Magento\Backend\App\Action
             } catch (\RuntimeException $e) {
                 $this->messageManager->addError($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addException($e, __('Something went wrong while saving the Movie.'));
+                $this->messageManager->addException($e, __('Something went wrong while saving the Actor.'));
             }
 
             $this->_getSession()->setFormData($data);
-            return $resultRedirect->setPath('*/*/edit', ['movie_id' => $this->getRequest()->getParam('movie_id')]);
+            return $resultRedirect->setPath('*/*/edit', ['actor_id' => $this->getRequest()->getParam('actor_id')]);
         }
         return $resultRedirect->setPath('*/*/');
     }
