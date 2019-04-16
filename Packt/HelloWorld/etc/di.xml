@@ -4,6 +4,7 @@
             <argument name="collections" xsi:type="array">
                 <item name="helloworld_movie_listing_data_source" xsi:type="string">Packt\HelloWorld\Model\ResourceModel\Movie\Collection</item>
                 <item name="helloworld_actor_listing_data_source" xsi:type="string">Packt\HelloWorld\Model\ResourceModel\Actor\Collection</item>
+                <item name="helloworld_director_listing_data_source" xsi:type="string">Packt\HelloWorld\Model\ResourceModel\Director\Collection</item>
             </argument>
 
         </arguments>
@@ -20,4 +21,11 @@
             <argument name="resourceModel" xsi:type="string">Packt\HelloWorld\Model\ResourceModel\Actor</argument>
         </arguments>
     </virtualType>
+    <virtualType name="Packt\HelloWorld\Model\ResourceModel\Director\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_director</argument>
+            <argument name="resourceModel" xsi:type="string">Packt\HelloWorld\Model\ResourceModel\Director</argument>
+        </arguments>
+    </virtualType>
+
 </config>

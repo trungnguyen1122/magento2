@@ -1,15 +1,11 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
     <body>
         <referenceContainer name="content">
-            <block
-                    class="Packt\HelloWorld\Block\Adminhtml\Director"
-                    name="adminhtml.block.helloworld.movie.container">
-                <block
-                        class="Packt\HelloWorld\Block\Adminhtml\Director\Grid"
-                        name="adminhtml.block.helloworld.director.grid" as="grid" />
-            </block>
+            <uiComponent name="helloworld_director_listing"/>
+
         </referenceContainer>
     </body>
 </page>

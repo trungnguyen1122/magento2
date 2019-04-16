@@ -13,9 +13,9 @@ class Event extends \Magento\Framework\App\Action\Action {
     public function execute() {
         $resultPage = $this->resultPageFactory->create();
         $parameters = [
-                'product' => $this->_objectManager->create('Magento\Catalog\Model\Product')->load(20),
+                'product' => $this->_objectManager->create('Magento\Catalog\Model\Product')->load(50),
                 'category' => $this->_objectManager->create('Magento\Catalog\Model\Product')->load(10),];
-$this->_eventManager->dispatch('helloworld_register_visit', $parameters);
+                $this->_eventManager->dispatch('helloworld_register_visit', $parameters);
 return $resultPage;
     }
 }
