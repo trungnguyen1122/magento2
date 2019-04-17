@@ -1,13 +1,9 @@
 <?php
 namespace Packt\HelloWorld\Block\Adminhtml\Movie\Edit;
-
-
 use Zend\Db\Sql\Ddl\Column\Integer;
 
 class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
-
-
     protected $_systemStore;
 
 
@@ -32,7 +28,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
 
     protected function _prepareForm()
     {
-        /** @var \Ashsmith\Blog\Model\Post $model */
+
         $model = $this->_coreRegistry->registry('helloworld_movie');
 
 

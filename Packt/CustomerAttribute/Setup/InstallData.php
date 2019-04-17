@@ -27,8 +27,7 @@ class InstallData implements InstallDataInterface
             'position' => 105,
         ]);
         $loyaltyAttribute = $customerSetup->getEavConfig()->getAttribute('customer', 'loyaltynumber');
-$loyaltyAttribute->setData('used_in_forms',
-    ['adminhtml_customer']);
+$loyaltyAttribute->setData('used_in_forms', ['adminhtml_customer']);
 $loyaltyAttribute->save();
 $setup->endSetup();
 }
