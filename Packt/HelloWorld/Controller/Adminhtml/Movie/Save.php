@@ -20,7 +20,11 @@ class Save extends \Magento\Backend\App\Action
     }
 
     public function execute()
+
     {
+        $this->_eventManager->dispatch($this->_eventPrefix . '_save_before', $this->_getEventData());
+
+
         $data = $this->getRequest()->getPostValue();
 
         $resultRedirect = $this->resultRedirectFactory->create();
@@ -59,6 +63,10 @@ class Save extends \Magento\Backend\App\Action
             $this->_getSession()->setFormData($data);
             return $resultRedirect->setPath('*/*/edit', ['movie_id' => $this->getRequest()->getParam('movie_id')]);
         }
+
         return $resultRedirect->setPath('*/*/');
+
+
+
     }
 }

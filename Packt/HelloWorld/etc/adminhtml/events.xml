@@ -4,6 +4,6 @@
         <observer name="ma_display_text" instance="Packt\HelloWorld\Observer\ChangeDisplayText" />
     </event>
     <event name="packt_helloworld_rating">
-        <observer name="mp_display_text" instance="Packt\HelloWorld\Observer\ChangeRating" />
+        <observer name="movie_raing_change_save_before" instance="Packt\HelloWorld\Observer\ChangeRating" />
     </event>
 </config>

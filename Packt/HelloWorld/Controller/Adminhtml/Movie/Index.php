@@ -5,7 +5,6 @@ namespace Packt\HelloWorld\Controller\Adminhtml\Movie;
 class Index extends \Magento\Backend\App\Action
 {
     protected $resultPageFactory = false;
-
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory
@@ -14,12 +13,12 @@ class Index extends \Magento\Backend\App\Action
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
     }
-
     public function execute()
     {
+        $this->_eventManager->dispatch('model_save_before', ['object' => $this]);
+
         $resultPage = $this->resultPageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend((__('Movie')));
         return $resultPage;
     }
-
 }
